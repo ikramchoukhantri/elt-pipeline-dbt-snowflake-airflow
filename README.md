@@ -1,48 +1,48 @@
-Overview
-========
+# ELT Pipeline Using dbt, Snowflake, and Airflow
 
-Welcome to Astronomer! This project was generated after you ran 'astro dev init' using the Astronomer CLI. This readme describes the contents of the project, as well as how to run Apache Airflow on your local machine.
+Ce projet vise à démontrer la construction d'un pipeline ELT (Extract, Load, Transform) en utilisant des outils industriels standards tels que **dbt**, **Snowflake** et **Airflow**. L'objectif est d'explorer et d'analyser des informations clés à partir de données stockées dans un data warehouse Snowflake.
 
-Project Contents
-================
+## 📋 Vue d'ensemble du projet
+L'analyse repose sur plusieurs jeux de données clés :
 
-Your Astro project contains the following files and folders:
+- **Données d'entrée** : Données brutes extraites de différentes sources (par exemple, fichiers CSV, bases de données).
+- **Transformations** : Modèles de transformation des données créés à l'aide de dbt pour générer des tables de faits et de dimensions.
+- **Orchestration** : Utilisation d'Airflow pour orchestrer le processus de chargement et de transformation des données.
 
-- dags: This folder contains the Python files for your Airflow DAGs. By default, this directory includes one example DAG:
-    - `example_astronauts`: This DAG shows a simple ETL pipeline example that queries the list of astronauts currently in space from the Open Notify API and prints a statement for each astronaut. The DAG uses the TaskFlow API to define tasks in Python, and dynamic task mapping to dynamically print a statement for each astronaut. For more on how this DAG works, see our [Getting started tutorial](https://www.astronomer.io/docs/learn/get-started-with-airflow).
-- Dockerfile: This file contains a versioned Astro Runtime Docker image that provides a differentiated Airflow experience. If you want to execute other commands or overrides at runtime, specify them here.
-- include: This folder contains any additional files that you want to include as part of your project. It is empty by default.
-- packages.txt: Install OS-level packages needed for your project by adding them to this file. It is empty by default.
-- requirements.txt: Install Python packages needed for your project by adding them to this file. It is empty by default.
-- plugins: Add custom or community plugins for your project to this file. It is empty by default.
-- airflow_settings.yaml: Use this local-only file to specify Airflow Connections, Variables, and Pools instead of entering them in the Airflow UI as you develop DAGs in this project.
+Le projet vise à identifier des tendances importantes, telles que l'impact de divers facteurs sur les données analysées et l'optimisation des ressources.
 
-Deploy Your Project Locally
-===========================
+## 🛠️ Caractéristiques principales
+### Analyse des données :
+- Extraction et chargement des données à partir de différentes sources.
+- Transformations des données pour créer des tables de faits et de dimensions pertinentes.
+- Gestion des erreurs et des logs pour assurer la fiabilité du pipeline.
 
-1. Start Airflow on your local machine by running 'astro dev start'.
+## 🚀 Technologies utilisées
+- **Outils** : dbt, Snowflake, Airflow
+- **Sources de données** : Données extraites de fichiers CSV ou d'autres systèmes de données.
 
-This command will spin up 4 Docker containers on your machine, each for a different Airflow component:
+## ⚙️ Comment ça fonctionne
+### Nettoyage et préparation des données :
+- Les jeux de données sont nettoyés pour éliminer les incohérences et standardiser les types de données.
 
-- Postgres: Airflow's Metadata Database
-- Webserver: The Airflow component responsible for rendering the Airflow UI
-- Scheduler: The Airflow component responsible for monitoring and triggering tasks
-- Triggerer: The Airflow component responsible for triggering deferred tasks
+### Transformations avec dbt :
+- Des modèles dbt sont utilisés pour appliquer des transformations et créer des tables de faits et de dimensions.
 
-2. Verify that all 4 Docker containers were created by running 'docker ps'.
+### Orchestration avec Airflow :
+- Les DAGs Airflow sont configurés pour automatiser l'exécution des tâches d'extraction, de chargement et de transformation.
 
-Note: Running 'astro dev start' will start your project with the Airflow Webserver exposed at port 8080 and Postgres exposed at port 5432. If you already have either of those ports allocated, you can either [stop your existing Docker containers or change the port](https://www.astronomer.io/docs/astro/cli/troubleshoot-locally#ports-are-not-available-for-my-local-airflow-webserver).
+## 📝 Insights clés
+- Identification des tendances dans les données analysées.
+- Impact des différentes transformations sur la qualité et la fiabilité des données.
+- Optimisation des ressources pour une meilleure gestion des données.
 
-3. Access the Airflow UI for your local Airflow project. To do so, go to http://localhost:8080/ and log in with 'admin' for both your Username and Password.
+## 📚 Améliorations futures
+- Expansion des données : Incorporer des ensembles de données supplémentaires pour une analyse plus complète.
+- Modélisation prédictive : Appliquer l'apprentissage automatique pour prédire les tendances futures.
+- Optimisation : Affiner les processus avec des options de filtrage et de segmentation plus détaillées.
 
-You should also be able to access your Postgres Database at 'localhost:5432/postgres'.
+## 💬 Contributions
+Les contributions sont les bienvenues ! N'hésitez pas à soumettre des problèmes ou des demandes de tirage.
 
-Deploy Your Project to Astronomer
-=================================
-
-If you have an Astronomer account, pushing code to a Deployment on Astronomer is simple. For deploying instructions, refer to Astronomer documentation: https://www.astronomer.io/docs/astro/deploy-code/
-
-Contact
-=======
-
-The Astronomer CLI is maintained with love by the Astronomer team. To report a bug or suggest a change, reach out to our support.
+## 📄 Notes
+Pour toute question ou retour, veuillez les laisser dans la section des commentaires du projet.
