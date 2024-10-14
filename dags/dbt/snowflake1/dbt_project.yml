@@ -1,0 +1,16 @@
+name: 'Project1'  
+version: '1.0.0'
+config-version: 2
+
+profile: 'data_pipeline'
+
+models:
+  snowflake_workshop:
+    staging:
+      materialized: view
+      snowflake_warehouse: dbt_wh
+      snowflake_role: dbt_role  # Ajoutez cette ligne si elle n'existe pas
+    marts:
+      materialized: table
+      snowflake_warehouse: dbt_wh
+      snowflake_role: dbt_role  # Ajoutez cette ligne aussi
