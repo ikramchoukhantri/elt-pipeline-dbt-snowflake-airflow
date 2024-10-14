@@ -28,7 +28,7 @@ This screenshot shows the results of a data transformation using DBT in Snowflak
 
 Here is the Airflow DAG managing the pipeline execution:
 
-![DBT Project Screenshot](dbt_project.png)
+![DBT Project Screenshot](dbt project.png)
 
 ## Setup Instructions
 
